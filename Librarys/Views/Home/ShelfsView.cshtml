@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Librarys.Models.Shelfs>
+
+@{
+    ViewData["Title"] = "רשימת מדפים";
+}
+
+<h1>הכנסת ספרים חדשים</h1>
+
+<p>
+    
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Height)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.libId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.libId)
+            </td>
+            <td>
+                    @Html.ActionLink("הכנס ספר", "CreateNewBook", new { id=item.Id })
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
